@@ -3,16 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WaitingListComponent } from './waiting-list/waiting-list.component';
+import { PatientService } from './patient.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { PatientComponent } from './patient/patient.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WaitingListComponent,
+    PatientComponent,
+    AddPatientComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

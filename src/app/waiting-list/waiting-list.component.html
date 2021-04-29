@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="d-flex">
+        <h3>LISTA DE ASTEPTARE</h3>
+        <button type="button" class="btn btn-outline-info btn-lg ml-auto p-2" style="border: 2px solid; font-weight: 600;" routerLink="/add-patient">Adaugare pacient</button>
+    </div>
+    <br>
+    <table class="table text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">NUME</th>
+                <th scope="col">PRENUME</th>
+                <th scope="col">DATA NASTERII</th>
+                <th scope="col">SEX(M/F)</th>
+                <th scope="col">EDITARE</th>
+                <th scope="col">STERGERE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of patients">
+                <td >{{patient.lastName}}</td>
+                <td>{{patient.firstName}}{{patient.isEdit}}</td>
+                <td>{{patient.birthDate}}</td>
+                <td>{{patient.gender}}</td>
+                <td class="zoom"><button type="button" routerLink="/edit/{{patient.waitingNumber}}" class="btn btn-info"><i class="fa fa-edit"></i></button></td>
+                <td class="zoom"><button type="button" (click)='openModal(patient.waitingNumber)'  class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,66 @@
+<div class="container mt-5" style="width: 750px;">
+    <h3 class="text-center">Adaugare pacient:</h3>
+    <br>
+    <div class="card-body" style="border: 1px solid;" >
+        <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label">Nume*</label>
+                <div class="col-sm-10">
+                    <input formControlName="lastName" type="text" class="form-control" placeholder="Nume" required>
+                    <span class="alert-danger" *ngIf="lastName.invalid && lastName.touched" >Camp obigatoriu!</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Prenume*</label>
+                <div class="col-sm-10">
+                    <input formControlName="firstName" type="text" class="form-control"  placeholder="Prenume" required>
+                    <span class="alert-danger" *ngIf="firstName.invalid && firstName.touched" >Camp obigatoriu!</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Data nasterii*</label>
+                <div class="col-sm-10">
+                    <input formControlName="birthDate" max="{{date}}" type="date" class="form-control" >
+                    <span class="alert-danger" *ngIf="birthDate.invalid && birthDate.touched" >Camp obigatoriu!</span>
+                </div>
+            </div>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Sex*</legend>
+                    <div class="col-sm-10 d-flex">
+                        <div class="form-check">
+                            <input formControlName="gender" class="form-check-input" type="radio" value="M" required>
+                            <label class="form-check-label">M</label>
+                        </div>
+                        <div class="form-check ml-5">
+                            <input formControlName="gender" class="form-check-input" type="radio" value="F" required>
+                            <label class="form-check-label">F</label>
+                        </div>
+                    </div>
+                    <span class="alert-danger" *ngIf="gender.errors?.required && gender.touched" >Camp obigatoriu!</span>
+                </div>
+            </fieldset>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">CNP</label>
+                <div class="col-sm-10">
+                    <input minlength="13" maxlength="13" pattern="[0-9.]+" formControlName="cnp" type="text" class="form-control" placeholder="Ex: 0000000000000">
+                    <span class="alert-danger" *ngIf="cnp.errors?.minlength || cnp.errors?.maxlength || cnp.errors?.pattern && cnp.touched">Campul trebuie sa contina 13 numere!</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label">Nr. telefon</label>
+                <div class="col-sm-10">
+                    <input formControlName="phoneNumber" type="text" pattern="[0-9.]+" class="form-control" placeholder="Ex: 0700000000">
+                    <span class="alert-danger" *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched">Campul trebuie sa contina doar caractere numerice!</span>
+                </div>
+                
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="col-md-12 text-center">
+                    <button [disabled]="patientForm.invalid" type="submit" class="btn btn-primary btn-lg">Adauga</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
