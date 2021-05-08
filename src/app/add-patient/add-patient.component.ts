@@ -15,6 +15,7 @@ export class AddPatientComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private patientService: PatientService, private router: Router) { }
 
+
   ngOnInit(): void {
     this.createPatient();
   }
@@ -29,6 +30,7 @@ export class AddPatientComponent implements OnInit {
       phoneNumber: [null, [Validators.required]]
     });
   }
+
 
   onSubmit() {
     this.patient = {
@@ -45,6 +47,7 @@ export class AddPatientComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 
+
   get lastName(){return this.patientForm.get('lastName')}
   get firstName(){return this.patientForm.get('firstName')}
   get birthDate(){return this.patientForm.get('birthDate')}
@@ -52,5 +55,4 @@ export class AddPatientComponent implements OnInit {
   get cnp(){return this.patientForm.get('cnp')}
   get phoneNumber(){return this.patientForm.get('phoneNumber')}
   get date(){return new Date().toISOString().slice(0, 10)}
-
 }

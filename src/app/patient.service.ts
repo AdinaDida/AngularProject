@@ -24,11 +24,12 @@ export class PatientService {
     return patient;
   }
 
+
   getPatientById(patientId){
     return this.patients.find(p => p.waitingNumber == patientId);
   }
 
-  
+
   editPatient(patient){
     let index = this.patients.findIndex(p => p.waitingNumber == patient.waitingNumber);
     this.patients[index] = patient;

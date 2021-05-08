@@ -1,10 +1,10 @@
 <div class="container mt-5" style="width: 750px;">
     <div class="card mb-4 rounded-3 shadow-sm border-dark">
         <div class="card-header py-3 text-white bg-dark border-dark">
-            <h4 class="my-0 fw-normal text-center">Adaugare pacient</h4>
+            <h4 class="my-0 fw-normal text-center">Editare pacient</h4>
         </div>
         <div class="card-body">
-            <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="editPatientForm" (ngSubmit)="onSubmit()">
                 <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Nume*</label>
                     <div class="col-sm-10">
@@ -60,7 +60,7 @@
                 <br>
                 <div class="form-group row">
                     <div class="col-md-12 text-center">
-                        <button [disabled]="patientForm.invalid" type="submit" class="btn btn-dark btn-lg">Adauga</button>
+                        <button [disabled]="editPatientForm.invalid" type="submit" class="btn btn-dark btn-lg">Editeaza</button>
                     </div>
                 </div>
             </form>

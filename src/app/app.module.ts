@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { WaitingListComponent } from './waiting-list/waiting-list.component';
 import { PatientService } from './patient.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { PatientComponent } from './patient/patient.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditPatientComponent } from './edit-patient/edit-patient.component';
+import { PatientComponent } from './patient/patient.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WaitingListComponent,
     PatientComponent,
     AddPatientComponent,
+    EditPatientComponent,
   ],
   imports: [
     BrowserModule,

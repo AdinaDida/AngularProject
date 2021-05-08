@@ -17,12 +17,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let patient of patients">
-                <td >{{patient.lastName}}</td>
+                <td class="zoom" routerLink="/patient/{{patient.waitingNumber}}"><b>{{patient.lastName}}</b></td>
                 <td>{{patient.firstName}}{{patient.isEdit}}</td>
                 <td>{{patient.birthDate}}</td>
                 <td>{{patient.gender}}</td>
                 <td class="zoom"><button type="button" routerLink="/edit/{{patient.waitingNumber}}" class="btn btn-info"><i class="fa fa-edit"></i></button></td>
-                <td class="zoom"><button type="button" (click)='openModal(patient.waitingNumber)'  class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                <td class="zoom"><button type="button" (click)='deletePatient(patient.waitingNumber)'  class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
             </tr>
         </tbody>
     </table>
